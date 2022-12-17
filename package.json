@@ -1,0 +1,31 @@
+{
+  "name": "easy-do-server",
+  "version": "1.0.0",
+  "description": "Backend Server for easy do Project Management Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sachin-Prasad-29/easy-do-server.git"
+  },
+  "author": "Sachin Prasad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sachin-Prasad-29/easy-do-server/issues"
+  },
+  "homepage": "https://github.com/Sachin-Prasad-29/easy-do-server#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0",
+    "nodemailer": "^6.8.0",
+    "swagger-ui-dist": "^4.15.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0"
+  }
+}
