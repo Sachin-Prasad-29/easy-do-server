@@ -48,12 +48,16 @@ const registerSvc = async (userData) => {
 }
 
 const getUserByEmail = async (email) => {
-    const loginedInUserData = await User.findOne({ email })
-    if (!loginedInUserData) {
-        const httpError = createHttpError('User Not Found with the Email', 400)
-        throw httpError
+    try {
+        const loginedInUserData = await User.findOne({ email })
+        if (!loginedInUserData) {
+            const httpError = createHttpError('User Not Found with the Email', 400)
+            throw httpError
+        }
+        return loginedInUserData
+    } catch (error) {
+        throw error
     }
-    return loginedInUserData
 }
 const checkPassword = async (user, plainPassword) => {
     let isMatch

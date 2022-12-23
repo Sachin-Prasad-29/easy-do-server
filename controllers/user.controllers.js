@@ -13,12 +13,11 @@ const register = async (req, res, next) => {
         next(httpError)
         return
     }
-
-    if (await checkUser(userReqData.email)) {
-        return res.status(400).send({ success: false, msg: 'User Already Registered' })
-    }
-
     try {
+
+        if (await checkUser(userReqData.email)) {
+            return res.status(400).send({ success: false, msg: 'User Already Registered' })
+        }
         const user = await registerSvc(userReqData)
         const userDetails = { ...user.toObject() }
         delete userDetails.password
