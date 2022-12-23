@@ -1,3 +1,5 @@
+
+
 const register = (req, res, next) => {
     res.status(200).json({ msg: 'Hi From Register Controller' })
 }
