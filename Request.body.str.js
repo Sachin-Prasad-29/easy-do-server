@@ -44,8 +44,7 @@
     "gender" : "Male"
 }
 
-
-//add Project 
+//add Project
     {
         "name": "First Project"
         "key": "FP",
@@ -53,33 +52,16 @@
 
     }
 
+    {
+    "projectId": "",
+    "summary": "Issue-1",
+    "tag": FD-1,
+    "type": ,
+    "assignee":,
+    "priority": "LOW",
+    "reporter": ,
+    },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// add issue
 
 */

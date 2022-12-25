@@ -3,10 +3,10 @@ const express = require('express')
 const router = express.Router()
 const { authenticate } = require('../middleware/auth')
 const {
-    createNotification,
-    getAllNotification,
-    editNotificationById,
-    deleteNotificationById,
+  createNotification,
+  getAllNotification,
+  editNotificationById,
+  deleteNotificationById
 } = require('../controllers/notification.controllers')
 
 router.post('/', authenticate, createNotification)

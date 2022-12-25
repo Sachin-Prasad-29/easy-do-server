@@ -3,11 +3,11 @@ const express = require('express')
 const router = express.Router()
 const { authenticate } = require('../middleware/auth')
 const {
-    createProject,
-    getProjects,
-    getProjectById,
-    editProjectById,
-    deleteProjectById,
+  createProject,
+  getProjects,
+  getProjectById,
+  editProjectById,
+  deleteProjectById
 } = require('../controllers/project.controllers')
 
 router.post('/', authenticate, createProject)

@@ -3,10 +3,10 @@ const express = require('express')
 const router = express.Router()
 const { authenticate } = require('../middleware/auth')
 const {
-    createBacklog,
-    getBacklogById,
-    editBacklogById,
-    deleteBacklogById,
+  createBacklog,
+  getBacklogById,
+  editBacklogById,
+  deleteBacklogById
 } = require('../controllers/backlog.controllers')
 
 router.post('/', authenticate, createBacklog) // project id will be passed for linking in body
