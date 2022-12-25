@@ -1,21 +1,21 @@
 const mongoose = require('mongoose')
 
-const TechnologySchema = new mongoose.Schema(
+const ProfileSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            require: true,
+            required: true,
         },
-        logo: {
+        email: {
             type: String,
-            require: true,
+            required: true,
         },
-        link: {
+        profilePic: {
             type: String,
-            default: '',
+            required: true,
         },
     },
     { _id: false }
 )
 
-module.exports = TechnologySchema
+module.exports = ProfileSchema

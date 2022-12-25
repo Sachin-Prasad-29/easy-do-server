@@ -45,6 +45,15 @@
 }
 
 
+//add Project 
+    {
+        "name": "First Project"
+        "key": "FP",
+        "type": "Scrum",
+
+    }
+
+
 
 
 
