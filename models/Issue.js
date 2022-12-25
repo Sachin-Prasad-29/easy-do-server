@@ -6,13 +6,17 @@ const CommentSchema = require('./schema/CommentSchema')
 
 const issueSchema = new mongoose.Schema(
     {
+        projectId: {
+            type: mongoose.ObjectId,
+            required: true,
+        },
         summary: {
             type: String,
             required: [true, 'Name must be Provided'],
         },
         tag: {
             type: String,
-            required: [true, 'Tage Must be provided'],
+            required: [true, 'Tag Must be provided'],
         },
         type: {
             type: IssueTypeSchema,

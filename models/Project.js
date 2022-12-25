@@ -76,6 +76,10 @@ const projectSchema = new mongoose.Schema(
             type: Number,
             default: 0,
         },
+        backlogId: {
+            type: mongoose.ObjectId,
+            default: null,
+        },
     },
     { timestamps: true }
 )
