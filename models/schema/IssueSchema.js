@@ -4,11 +4,11 @@ const IssueSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            require: true,
+            required: true,
         },
         id: {
             type: mongoose.ObjectId,
-            require: true,
+            required: true,
         },
         status: {
             type: String,

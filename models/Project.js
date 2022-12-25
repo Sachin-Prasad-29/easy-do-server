@@ -72,6 +72,14 @@ const projectSchema = new mongoose.Schema(
             type: String,
             default: 'Ongoing',
         },
+        count: {
+            type: Number,
+            default: 0,
+        },
+        backlogId: {
+            type: mongoose.ObjectId,
+            default: null,
+        },
     },
     { timestamps: true }
 )
