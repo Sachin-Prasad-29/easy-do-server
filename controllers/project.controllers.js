@@ -64,8 +64,29 @@ const getProjectById = async (req, res, next) => {
         return
     }
 }
-const editProjectById = async (req, res, next) => {}
-const deleteProjectById = async (req, res, next) => {}
+const editProjectById = async (req, res, next) => {
+    const projectId = req.params.id
+    const projectReqData = req.body
+    try {
+        const updatedProject = await editProjectByIdSvc(projectId, projectReqData)
+        res.status(201).json({ success: true, project: updatedProject })
+    } catch (error) {
+        const httpError = createHttpError(error.message, 400)
+        next(httpError)
+        return
+    }
+}
+const deleteProjectById = async (req, res, next) => {
+    const projectId = req.params.id
+    try {
+        const deletedProjectDetails = await deleteProjectByIdSvc(projectId)
+        res.status(201).json({ success: true, project: deletedProjectDetails })
+    } catch (error) {
+        const httpError = createHttpError(error.message, 400)
+        next(httpError)
+        return
+    }
+}
 
 module.exports = {
     createProject,

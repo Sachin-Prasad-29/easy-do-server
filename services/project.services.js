@@ -55,7 +55,42 @@ const getProjectByIdSvc = async (projectId) => {
         throw error
     }
 }
-const editProjectByIdSvc = async () => {}
-const deleteProjectByIdSvc = async () => {}
+const editProjectByIdSvc = async (projectId, projectReqData) => {
+    try {
+        const updatedProject = await Project.findByIdAndUpdate(projectId, projectReqData, {
+            new: true,
+            runValidators: true,
+        })
+        if (!updatedProject) {
+            const error = createHttpError('No Project Found with Given Id', 404)
+            throw error
+        }
+        return updatedProject
+    } catch (error) {
+        if (error.name === 'CastError') {
+            const dbError = new Error(`Data Type error : ${error.message}`)
+            dbError.type = 'CastError'
+            throw dbError
+        }
+        if (error.type === 'NotFound') {
+            throw error
+        }
+        throw error
+    }
+}
+const deleteProjectByIdSvc = async (projectId) => {
+    let deletedProjectDetails
+    try {
+        deletedProjectDetails = await Project.findByIdAndDelete(projectId)
+    } catch (error) {
+        const httpError = createHttpError(error.message, 400)
+        throw httpError
+    }
+    if (!deletedProjectDetails) {
+        const error = createHttpError(`No Project Found with Given Id`, 404)
+        throw error
+    }
+    return deletedProjectDetails
+}
 
 module.exports = { createProjectSvc, getProjectsSvc, getProjectByIdSvc, editProjectByIdSvc, deleteProjectByIdSvc }

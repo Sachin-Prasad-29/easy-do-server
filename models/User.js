@@ -62,7 +62,7 @@ const passwordPat = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/
 // we can customize the schema further before model is created
 userSchema
     .path('email')
-    .validate((email) => emailPat.test(email), 'Invalid email. Please make sure the email is in @___.com formet.')
+    .validate((email) => emailPat.test(email), 'Invalid email. Please make sure the email is in @___.com format.')
 
 userSchema
     .path('password')

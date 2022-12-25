@@ -4,15 +4,15 @@ const ProjectSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            require: true,
+            required: true,
         },
         ProjectId: {
             type: mongoose.ObjectId,
-            require: true,
+            required: true,
         },
         logo: {
             type: String,
-            require: true,
+            required: true,
         },
         link: {
             type: String,
@@ -20,11 +20,11 @@ const ProjectSchema = new mongoose.Schema(
         },
         type: {
             type: String,
-            require: true,
+            required: true,
         },
         projectAdmin: {
             type: String,
-            require: true,
+            required: true,
         },
     },
     { _id: false }

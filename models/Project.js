@@ -72,6 +72,10 @@ const projectSchema = new mongoose.Schema(
             type: String,
             default: 'Ongoing',
         },
+        count: {
+            type: Number,
+            default: 0,
+        },
     },
     { timestamps: true }
 )
