@@ -8,16 +8,20 @@ const {
 } = require('../services/backlog.services')
 
 const createBacklog = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from backlog' })
+    const response = await createBacklogSvc()
+    res.status(201).json({ success: true, backlog: response })
 }
 const getBacklogById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from backlog' })
+    const response = await getBacklogByIdSvc()
+    res.status(201).json({ success: true, backlog: response })
 }
 const editBacklogById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from backlog' })
+    const response = await editBacklogByIdSvc()
+    res.status(201).json({ success: true, backlog: response })
 }
 const deleteBacklogById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from backlog' })
+    const response = await deleteBacklogByIdSvc()
+    res.status(201).json({ success: true, backlog: response })
 }
 
 module.exports = {

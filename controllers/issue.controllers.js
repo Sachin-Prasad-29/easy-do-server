@@ -10,22 +10,28 @@ const {
 } = require('../services/issue.services')
 
 const createIssue = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from ISSUE' })
+    const response = await createIssueSvc()
+    res.status(201).json({ success: true, issue: response })
 }
 const getAllProjectIsssue = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from ISSUE' })
+    const response = await getAllProjectIsssueSvc()
+    res.status(201).json({ success: true, issue: response })
 }
 const getAllUserIsssue = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from ISSUE' })
+    const response = await getAllUserIsssueSvc()
+    res.status(201).json({ success: true, issue: response })
 }
 const getIssueById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from ISSUE' })
+    const response = await getIssueByIdSvc()
+    res.status(201).json({ success: true, issue: response })
 }
 const editIssueById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from ISSUE' })
+    const response = await editIssueByIdSvc()
+    res.status(201).json({ success: true, issue: response })
 }
 const deleteIssueById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from ISSUE' })
+    const response = await deleteIssueByIdSvc()
+    res.status(201).json({ success: true, issue: response })
 }
 
 module.exports = {

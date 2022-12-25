@@ -8,16 +8,20 @@ const {
 } = require('../services/notification.services')
 
 const createNotification = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from Notificatoin' })
+    const response = await createNotificationSvc()
+    res.status(201).json({ success: true, notification: response })
 }
 const getAllNotification = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from Notificatoin' })
+    const response = await getAllNotificationSvc()
+    res.status(201).json({ success: true, notification: response })
 }
 const editNotificationById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from Notificatoin' })
+    const response = await editNotificationByIdSvc()
+    res.status(201).json({ success: true, notification: response })
 }
 const deleteNotificationById = async (req, res, next) => {
-    res.status(201).json({ success: 'hello from Notificatoin' })
+    const response = await deleteNotificationByIdSvc()
+    res.status(201).json({ success: true, notification: response })
 }
 
 module.exports = {
