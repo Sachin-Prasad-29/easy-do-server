@@ -23,6 +23,7 @@ const createProjectSvc = async (data) => {
     throw error
   }
 }
+
 const getProjectsSvc = async (userEmail) => {
   try {
     const allProjects = await Project.find({ contributors: userEmail })
@@ -35,6 +36,7 @@ const getProjectsSvc = async (userEmail) => {
     throw error
   }
 }
+
 const getProjectByIdSvc = async (projectId) => {
   try {
     const prjectDetails = await Project.findById(projectId)
@@ -55,6 +57,7 @@ const getProjectByIdSvc = async (projectId) => {
     throw error
   }
 }
+
 const editProjectByIdSvc = async (projectId, projectReqData) => {
   try {
     const updatedProject = await Project.findByIdAndUpdate(projectId, projectReqData, {
@@ -78,6 +81,7 @@ const editProjectByIdSvc = async (projectId, projectReqData) => {
     throw error
   }
 }
+
 const deleteProjectByIdSvc = async (projectId) => {
   let deletedProjectDetails
   try {

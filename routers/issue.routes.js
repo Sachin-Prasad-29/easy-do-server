@@ -15,7 +15,7 @@ router.post('/', authenticate, createIssue)
 router.get('/:issueId', authenticate, getIssueById)
 router.patch('/:issueId', authenticate, editIssueById)
 router.delete('/:issueId', authenticate, deleteIssueById)
-router.get('/user/:userId', authenticate, getAllUserIsssue)
+router.get('/user/:userEmail', authenticate, getAllUserIsssue)
 router.get('/project/:projectId', authenticate, getAllProjectIsssue)
 
 module.exports = router

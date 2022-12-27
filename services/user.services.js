@@ -59,6 +59,7 @@ const getUserByEmail = async (email) => {
     throw error
   }
 }
+
 const checkPassword = async (user, plainPassword) => {
   let isMatch
 
@@ -76,6 +77,7 @@ const checkPassword = async (user, plainPassword) => {
   }
   return isMatch
 }
+
 const getProfileSvc = async (id) => {
   let userDetails
   try {

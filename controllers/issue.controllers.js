@@ -28,6 +28,7 @@ const createIssue = async (req, res, next) => {
     next(httpError)
   }
 }
+
 const getAllProjectIsssue = async (req, res, next) => {
   const projectId = req.params.projectId
 
@@ -39,6 +40,7 @@ const getAllProjectIsssue = async (req, res, next) => {
     next(httpError)
   }
 }
+
 const getAllUserIsssue = async (req, res, next) => {
   const userEmail = req.params.userEmail
 
@@ -50,6 +52,7 @@ const getAllUserIsssue = async (req, res, next) => {
     next(httpError)
   }
 }
+
 const getIssueById = async (req, res, next) => {
   const issueId = req.params.issueId
   try {
@@ -60,6 +63,7 @@ const getIssueById = async (req, res, next) => {
     next(httpError)
   }
 }
+
 const editIssueById = async (req, res, next) => {
   const issueId = req.params.issueId
   const issuePayload = req.body
@@ -71,10 +75,11 @@ const editIssueById = async (req, res, next) => {
     next(httpError)
   }
 }
+
 const deleteIssueById = async (req, res, next) => {
   const issueId = req.params.issueId
   try {
-    const deletedIssueDetails = await deleteEventSvc(issueId)
+    const deletedIssueDetails = await deleteIssueByIdSvc(issueId)
     res.status(201).json({ success: true, issue: deletedIssueDetails })
   } catch (error) {
     const httpError = createHttpError(error.message, 400)
