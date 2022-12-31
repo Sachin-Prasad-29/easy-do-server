@@ -22,7 +22,7 @@ const createIssueSvc = async (issueData) => {
         }
         throw error
     }
-    return
+    
 }
 const getAllProjectIsssueSvc = async (projectId) => {
     try {
@@ -109,12 +109,12 @@ const editIssueByIdSvc = async (issueId, issuePayload) => {
 }
 const deleteIssueByIdSvc = async (issueId) => {
     try {
-        const deletedIssueDetails = await Issue.findByIdAndDelete(issueId)
-        if (!deletedIssueDetails) {
+        const deletedIssue = await Issue.findByIdAndDelete(issueId)
+        if (!deletedIssue) {
             const error = createHttpError('No Issue Found with Given Id', 404)
             throw error
         }
-        return deletedIssueDetails
+        return deletedIssue
     } catch (error) {
         if (error.name === 'CastError') {
             const dbError = new Error(`Data Type error : ${error.message}`)

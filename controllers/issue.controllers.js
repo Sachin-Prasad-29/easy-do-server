@@ -79,8 +79,8 @@ const editIssueById = async (req, res, next) => {
 const deleteIssueById = async (req, res, next) => {
   const issueId = req.params.issueId
   try {
-    const deletedIssueDetails = await deleteIssueByIdSvc(issueId)
-    res.status(201).json({ success: true, issue: deletedIssueDetails })
+    const deletedIssue = await deleteIssueByIdSvc(issueId)
+    res.status(201).json({ success: true, issue: deletedIssue })
   } catch (error) {
     const httpError = createHttpError(error.message, 400)
     next(httpError)
