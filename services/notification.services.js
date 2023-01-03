@@ -23,9 +23,9 @@ const createNotificationSvc = async (notificationData) => {
         throw error
     }
 }
-const getAllNotificationSvc = async (userId) => {
+const getAllNotificationSvc = async (userEmail) => {
     try {
-        const allNotification = await Notification.find({ userId })
+        const allNotification = await Notification.find({ email: userEmail })
         if (!allNotification) {
             const error = createHttpError('No Notification Found for the User', 400)
             throw error

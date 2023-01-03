@@ -25,10 +25,10 @@ const createNotification = async (req, res, next) => {
     }
 }
 const getAllNotification = async (req, res, next) => {
-    const userId = res.locals.userData.id
+    const userEmail = res.locals.userData.email
 
     try {
-        const allNotification = await getAllNotificationSvc(userId)
+        const allNotification = await getAllNotificationSvc(userEmail)
         res.status(201).json({ success: true, notification: allNotification })
     } catch (error) {
         const httpError = createHttpError(error.message, 400)

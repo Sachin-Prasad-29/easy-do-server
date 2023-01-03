@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 const notificationSchema = new mongoose.Schema(
     {
-        userId: {
-            type: mongoose.ObjectId,
-            required: [true, 'User ID must be Provided'],
+        email: {
+            type: 'String',
+            required: [true, 'Email ID must be Provided'],
         },
         message: {
             type: String,
