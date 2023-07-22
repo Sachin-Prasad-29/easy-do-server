@@ -43,7 +43,7 @@ const getProjects = async (req, res, next) => {
       delete singleProject.createdAt
       return singleProject
     })
-    console.log(allProject)
+    // console.log(allProject)
 
     res.status(201).json({ success: true, projects: allProject })
   } catch (error) {

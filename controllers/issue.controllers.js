@@ -1,12 +1,13 @@
 const { createHttpError } = require('../errors/custom.error')
 
 const {
-  createIssueSvc,
-  getAllProjectIsssueSvc,
-  getAllUserIsssueSvc,
-  getIssueByIdSvc,
-  editIssueByIdSvc,
-  deleteIssueByIdSvc
+    createIssueSvc,
+    getAllProjectIsssueSvc,
+    getAllAssigneedIsssueSvc,
+    getAllReportedIssueSvc,
+    getIssueByIdSvc,
+    editIssueByIdSvc,
+    deleteIssueByIdSvc,
 } = require('../services/issue.services')
 
 const createIssue = async (req, res, next) => {
@@ -41,16 +42,27 @@ const getAllProjectIsssue = async (req, res, next) => {
   }
 }
 
-const getAllUserIsssue = async (req, res, next) => {
-  const userEmail = req.params.userEmail
+const getAllAssigneedIsssue = async (req, res, next) => {
+    const userEmail = req.params.userEmail
 
-  try {
-    const allUserIssue = await getAllUserIsssueSvc(userEmail)
-    res.status(201).json({ success: true, issue: allUserIssue })
-  } catch (error) {
-    const httpError = createHttpError(error.message, 400)
-    next(httpError)
-  }
+    try {
+        const allUserIssue = await getAllAssigneedIsssueSvc(userEmail)
+        res.status(201).json({ success: true, issue: allUserIssue })
+    } catch (error) {
+        const httpError = createHttpError(error.message, 400)
+        next(httpError)
+    }
+}
+const getAllReportedIssue = async (req, res, next) => {
+    const userEmail = req.params.userEmail
+
+    try {
+        const allUserIssue = await getAllReportedIssueSvc(userEmail)
+        res.status(201).json({ success: true, issue: allUserIssue })
+    } catch (error) {
+        const httpError = createHttpError(error.message, 400)
+        next(httpError)
+    }
 }
 
 const getIssueById = async (req, res, next) => {
@@ -88,10 +100,11 @@ const deleteIssueById = async (req, res, next) => {
 }
 
 module.exports = {
-  createIssue,
-  getAllProjectIsssue,
-  getAllUserIsssue,
-  getIssueById,
-  editIssueById,
-  deleteIssueById
+    createIssue,
+    getAllProjectIsssue,
+    getAllAssigneedIsssue,
+    getAllReportedIssue,
+    getIssueById,
+    editIssueById,
+    deleteIssueById,
 }
